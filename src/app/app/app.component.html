@@ -1,0 +1,39 @@
+<mat-toolbar color="primary" class="mat-elevation-z4">
+
+    <span>
+  <button  mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  </span>
+    <span style="margin-left: 15px;">
+      FoodApp Web Admin
+  </span>
+
+    <!-- <span class="spacer"></span>
+    <ng-container *ngIf="this.$isAuth; else ingresar">
+        <button mat-flat-button (click)="salir()">Desloguearse</button>
+    </ng-container>
+    <ng-template #ingresar>
+        <button mat-flat-button routerLink="/login">Ingresar</button>
+    </ng-template> -->
+
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="push" class="app-sidenav">
+        <nav>
+            <a mat-button class="nav-link" *ngFor="let item of navigation" (click)="sidenav.close()" [routerLink]="item.path" routerLinkActive="active">
+                <mat-icon>
+                    {{ item.icon }}
+                </mat-icon>
+                {{ item.title }}
+            </a>
+        </nav>
+    </mat-sidenav>
+
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-sidenav-container>
