@@ -19,6 +19,7 @@ import {
   MatButtonToggleModule,
   MatDialogModule,
   MatSlideToggleModule,
+  MatTabsModule
 } from '@angular/material';
 
 @NgModule({
@@ -35,6 +36,7 @@ import {
     MatInputModule,
     MatListModule,
     MatMenuModule,
+    MatTabsModule,
     MatSelectModule,
     MatSidenavModule,
     MatSliderModule,

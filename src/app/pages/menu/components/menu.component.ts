@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormBuilder, Validators } from '@angular/forms';
+import {NgForm, FormBuilder, Validators, FormGroupDirective} from '@angular/forms';
 import { Store, select } from '@ngrx/store';
 import { mergeMap, tap, switchMap, map } from 'rxjs/operators';
 
@@ -22,6 +22,7 @@ import {StoreService} from '../../../api/store/store.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  ngForm: NgForm;
   isEditing: boolean;
   isCreating: boolean;
   menuList$: Observable<Menu[]>;
@@ -93,7 +94,7 @@ export class MenuComponent implements OnInit {
   }
 
   addNew(menuForm: NgForm) {
-    menuForm.resetForm();
+    // menuForm.resetForm();
     this.menuFormGroup.reset();
     this.menuFormGroup.setValue(MenuComponent.createMenu());
     this.isCreating = true;
@@ -115,7 +116,7 @@ export class MenuComponent implements OnInit {
 
     } else {
       this.store.dispatch( new menuActions.MenuAddAction(menu) );
-
+      console.log('** EL MENU ES >>', menu)
       this.isCreating = false;
     }
   }

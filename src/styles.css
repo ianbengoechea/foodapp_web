@@ -13,10 +13,6 @@ body {
     display: flex;
 }
 
-p {
-    margin: 16px;
-}
-
 .icon-20 {
     font-size: 20px;
 }

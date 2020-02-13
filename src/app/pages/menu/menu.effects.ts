@@ -45,6 +45,7 @@ export class MenuEffects {
         mergeMap( ([action, state]: [menuActions.MenuAddAction, AppState]) =>
             this.api.createMenu(action.payload)),
         switchMap( _ => {
+          console.log('el menu esta en el effect')
             return this.storeService.getMenuFromStoreId(1)
                 .pipe(
                     switchMap(

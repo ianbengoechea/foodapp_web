@@ -11,15 +11,15 @@
     <div class="row">
         <div class="col-md-6">
 
-            <button type="button" mat-fab color="primary" class="add" [ngClass]="routeAnimationsElements" *ngIf="!isEditing && !isCreating" (click)="addNew(menuForm)">
+            <button type="button" mat-fab color="primary" class="add"  *ngIf="!isEditing && !isCreating" (click)="addNew(ngForm)">
                 Add
             </button>
 
-            <form #menuForm="ngForm" [formGroup]="menuFormGroup" [style.display]="isEditing || isCreating ? 'block' : 'none'" [ngClass]="routeAnimationsElements">
+            <form  [formGroup]="menuFormGroup" [style.display]="isEditing || isCreating ? 'block' : 'none'">
                 <div class="row">
                     <mat-form-field class="col">
                         <input matInput placeholder="producto" formControlName="name" required autofocus>
-                        <mat-error *ngIf="menuFormGroup.get('name').invalid">
+                        <mat-error *ngIf="menuFormGroup.get('name').invalid && menuFormGroup.dirty ">
                             *campo requerido
                         </mat-error>
                     </mat-form-field>

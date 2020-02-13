@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // ngrx
 import { StoreModule } from '@ngrx/store';
@@ -24,6 +25,7 @@ import { environment } from 'src/environments/environment';
 import {AngularFireModule} from "@angular/fire";
 import {AngularFireStorageModule} from "@angular/fire/storage";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   entryComponents: [
@@ -43,16 +45,18 @@ import {AngularFirestoreModule} from "@angular/fire/firestore";
     BrowserAnimationsModule,
     SharedModule,
     BrowserModule,
+    FlexLayoutModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    EffectsModule.forRoot( effectComponents ),
-    StoreModule.forRoot( appReducers ),
+    EffectsModule.forRoot(effectComponents),
+    StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
-    })
+    }),
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

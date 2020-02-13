@@ -39,6 +39,7 @@ export class MenuService {
   }
 
   createMenu(m: Menu) {
+    console.log('*** LLEGO EL MENU AL ENDPOINT ES >>', m)
     return this.http.post<any>(`${ this.SERVER }/product`, m, { headers: this.httpHeaders });
   }
 
